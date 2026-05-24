@@ -1,6 +1,6 @@
 #include "header.h"
 
-void menu_user(void)
+int menu_user(void)
 {
     printf("                           MENU PERDORUES\n");
     printf("---------------------------------------------------------------------\n\n");
@@ -24,6 +24,7 @@ void menu_user(void)
     while(1)
     {
         printf("\nZgjidhni (1-12):   ");
+        while (getchar() != '\n');
         scanf("%d", &n);
         switch(n)
         {
@@ -76,14 +77,14 @@ void menu_user(void)
                 system("clear");
                 printf("                               MENU\n");
                 printf("---------------------------------------------------------------------\n\n");
-                return ;
+                return 0;
             }
             default:
             {
                 printf("Zgjidhni nje opsion te sakte (1-12)!    ");
-                while (getchar() != '\n');
                 break;
             }
         }
     }
+    return 0;
 }

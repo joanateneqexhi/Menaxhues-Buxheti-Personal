@@ -2,8 +2,9 @@
 # define HEADER_H
 
 # include <stdio.h>
-# include <string.h>
+# include <string.h> // per strcmp
 # include <stdlib.h> //per funksionin: int system(const char *command) / system("cls")
+# include <ctype.h> // per funksionin: ispunct (pass validation)
 
 // limitet maksimale qe mund te mbaj secili struct array
 # define MAX_USER 50
@@ -64,8 +65,8 @@ extern struct te_ardhura te_ardhurat[MAX_ARDHURA];
 
 //                                            - Menu
 int menu_1(void);
-void menu_admin(void);
-void menu_user(void);
+int menu_admin(void);
+int menu_user(void);
 
 int inicializo_file(char *filename);
 
@@ -81,5 +82,14 @@ int ruaj_users(void);
 int ruaj_kategorite(void);
 int ruaj_shpenzime(void);
 int ruaj_ardhura(void);
+
+//                                            - gjej_*
+int gjej_user_username(char *username);
+int gjej_user_id(int id);
+
+//                                            - menu_admin
+void shto_user(void);
+
+//                                            - menu_user
 
 #endif

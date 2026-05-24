@@ -48,13 +48,23 @@ int main()
             case 1:
             {
                 system("clear");  //system ("cls")  - per Windows
-                menu_admin();
+                if (menu_admin() == -1)
+                {
+                    // Mesazhi i gabimit specifik eshte bere sapo eshte hasur gabimi
+                    printf("Po mbyllet programi...\n");
+                    return -1;
+                }
                 break;
             }
             case 2:
             {
                 system("clear");
-                menu_user();
+                if (menu_user() == -1)
+                {
+                    // Mesazhi i gabimit specifik eshte bere sapo eshte hasur gabimi
+                    printf("Po mbyllet programi...\n");
+                    return 0;
+                }
                 break;
             }
             case 3:
@@ -72,6 +82,8 @@ int main()
     }
     return 0;
 }
+
+//                                         Funksionet
 
 int menu_1(void)
 {
