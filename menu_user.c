@@ -81,6 +81,7 @@ void menu_user(void)
             default:
             {
                 printf("Zgjidhni nje opsion te sakte (1-12)!    ");
+                while (getchar() != '\n');
                 break;
             }
         }

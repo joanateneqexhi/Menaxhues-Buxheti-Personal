@@ -82,6 +82,7 @@ void menu_admin(void)
             default:
             {
                 printf("Zgjidhni nje opsion te sakte (1-11)!    ");
+                while (getchar() != '\n');
                 break;
             }
         }
