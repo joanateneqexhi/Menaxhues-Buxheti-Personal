@@ -1,5 +1,11 @@
 #include "header.h"
 
+// Kushte të cilat duhen kontrolluar në program:
+// - Vlera e id duhet të jetë numër pozitiv dhe unik
+// - Username duhet të jetë unik
+// - Password duhet të nisë e shkronjë të madhe, të ketë minimumi 4 karaktere, të përmbajë të
+// paktën një numër dhe një simbol.
+
 void menu_admin(void)
 {
     printf("                         MENU ADMINISTRATOR\n");

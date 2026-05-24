@@ -1,9 +1,17 @@
 #ifndef HEADER_H
 # define HEADER_H
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h> //per funksionin: int system(const char *command) / system("cls")
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h> //per funksionin: int system(const char *command) / system("cls")
+
+// limitet maksimale qe mund te mbaj secili struct array
+# define MAX_USER 50
+# define MAX_SHPENZIME 250
+# define MAX_ARDHURA 250
+# define MAX_KATEGORI 25
+
+//                                        Strukturat
 
 struct perdorues
 {
@@ -25,24 +33,53 @@ struct shpenzim
 {
     int id_shpenzim;
     int id_user;
-    char pershkrim[150];
-    struct kategori kategoria;
+    int id_kategori;
     float shuma;
     char data[10];
+    char pershkrim[150];
 };
 
 struct te_ardhura
 {
     int id_hyrje;
     int id_user;
-    char burimi[20];
     float shuma;
     char data[10];
+    char burimi[30];
 };
 
+// extern 
+// -> qe te njihen nga gjithe files, mos te tentoje secila ti deklaroje vet (deklaruar ne main)
+extern int user_aktual;
+extern int shpenzim_aktual;
+extern int e_ardhura_aktuale;
+extern int kategoria_aktuale;
+
+extern struct perdorues perdoruesit[MAX_USER];
+extern struct kategori kategorite[MAX_KATEGORI];
+extern struct shpenzim shpenzimet[MAX_SHPENZIME];
+extern struct te_ardhura te_ardhurat[MAX_ARDHURA];
+
+//                                           Funksionet
+
+//                                            - Menu
 int menu_1(void);
 void menu_admin(void);
 void menu_user(void);
 
+int inicializo_file(char *filename);
+
+//                                            - lexo_*
+int lexo_users(void);
+int lexo_kategorite(void);
+int lexo_shpenzime(void);
+int lexo_ardhura(void);
+
+//                                            - ruaj_*
+int ruaj_te_dhenat(void);
+int ruaj_users(void);
+int ruaj_kategorite(void);
+int ruaj_shpenzime(void);
+int ruaj_ardhura(void);
 
 #endif
