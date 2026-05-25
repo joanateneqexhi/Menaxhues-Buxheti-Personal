@@ -40,8 +40,9 @@ int menu_admin(void)
                 if (ruaj_te_dhenat() == -1)
                 {
                     return -1;
-                }    
-                // menu_admin(); GABIM 
+                }   
+                system("clear"); 
+                shfaq_menu_admin(); 
                 break;
             }
             case 2:
@@ -95,6 +96,25 @@ int menu_admin(void)
         }
     }
     return 0;
+}
+
+//                                       Shfaq menu
+
+void shfaq_menu_admin(void)
+{
+    printf("                         MENU ADMINISTRATOR\n");
+    printf("---------------------------------------------------------------------\n\n");
+    printf("1. Shtoni një përdorues të ri\n");
+    printf("2. Shfaq përdoruesit\n");
+    printf("3. Kërko përdorues sipas ID\n");
+    printf("4. Fshini kredencialet e një përdoruesi\n");
+    printf("5. Ndryshoni të dhënat e një përdoruesi ekzistues\n");
+    printf("6. Printoni të gjithë të dhënat e përdoruesve\n");
+    printf("7. Kërkoni një përdorues sipas username\n");
+    printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
+    printf("9. Shto / Ndrysho / Fshi kategori\n");
+    printf("10. Statistika të sistemit\n");
+    printf("11. Dilni nga menuja e administratorit\n");
 }
 
 //                                     Funksionet

@@ -65,6 +65,8 @@ extern struct te_ardhura te_ardhurat[MAX_ARDHURA];
 
 //                                            - Menu
 int menu_1(void);
+void shfaq_menu_admin(void);
+void shfaq_menu_user(void);
 int menu_admin(void);
 int menu_user(void);
 
