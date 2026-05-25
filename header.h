@@ -91,6 +91,7 @@ int gjej_user_id(int id);
 
 //                                            - menu_admin
 void shto_user(void);
+void shfaq_users(void);
 
 //                                            - menu_user
 

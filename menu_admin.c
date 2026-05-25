@@ -37,7 +37,7 @@ int menu_admin(void)
             {
                 system("clear");
                 shto_user();
-                if (ruaj_te_dhenat() == -1)
+                if (ruaj_te_dhenat() == -1) //happens twice dhe brenda funx
                 {
                     return -1;
                 }   
@@ -47,6 +47,8 @@ int menu_admin(void)
             }
             case 2:
             {
+                shfaq_users();
+                shfaq_menu_admin();
                 break;
             }
             case 3:
@@ -281,4 +283,18 @@ int gjej_user_username(char *username)
         }
     }
     return -1;
+}
+
+void shfaq_users(void)
+{
+    printf("\n\n                            PERDORUESIT\n");
+    printf("---------------------------------------------------------------------\n");
+    for (int i = 0; i < user_aktual; i++)
+    {
+        printf("Perdoruesi %d\n\n", i + 1);
+        printf("ID: %d \nEmri: %s\nUsername: %s\nBuxheti mujor: %.2f\n\n\n", perdoruesit[i].id_user, perdoruesit[i].emri, 
+            perdoruesit[i].username, perdoruesit[i].password, 
+            perdoruesit[i].buxheti_mujor);
+    }
+    printf("---------------------------------------------------------------------\n");
 }
