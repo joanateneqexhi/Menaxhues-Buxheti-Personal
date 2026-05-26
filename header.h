@@ -12,6 +12,9 @@
 # define MAX_ARDHURA 250
 # define MAX_KATEGORI 25
 
+// password per tu loguar si admin
+# define ADMIN_PASS "Admin@2026"
+
 //                                        Strukturat
 
 struct perdorues
@@ -67,8 +70,8 @@ extern struct te_ardhura te_ardhurat[MAX_ARDHURA];
 int menu_1(void);
 void shfaq_menu_admin(void);
 void shfaq_menu_user(void);
-int menu_admin(void);
-int menu_user(void);
+void menu_admin(void);
+void menu_user(void);
 
 int inicializo_file(char *filename);
 
@@ -85,13 +88,24 @@ int ruaj_kategorite(void);
 int ruaj_shpenzime(void);
 int ruaj_ardhura(void);
 
-//                                            - gjej_*
+//                                            - gjej_* kontrollo_*
 int gjej_user_username(char *username);
 int gjej_user_id(int id);
+int kontrollo_id_ekzistuese(int id);
+int merr_id_input(void);
+float merr_buxhet_input(void);
+void merr_username(char *username);
+void merr_pass_input(char *password);
 
 //                                            - menu_admin
-void shto_user(void);
+int shto_user(void);
 void shfaq_users(void);
+int kerko_user_sipas_id(void);
+void fshi_user(void);
+void ndyrsho_user(void);
+void shfaq_users_full(void);
+void kerko_user_sipas_username(void);
+
 
 //                                            - menu_user
 

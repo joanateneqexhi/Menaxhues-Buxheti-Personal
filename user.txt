@@ -1,7 +1,12 @@
-6
-1 Joana joana_.t J0a! 100.00
-2 Livia livia.s Livia123! 200.00
-3 Nensi nensallushi Allush_1 0.00
-4 Ema emap Hdhquiodh0! 400.00
-7 Brikena brikii9 He110/ 900.00
-5 Leons leoleo KLsahohfha21!o 750.50
+11
+1 Joana joana_.t J0@n@123joana! 10000.00
+2 Livia livia.s L1v1a_ 5000.00
+3 Nensi nensallushi Allush_1 120000.80
+4 Brikena brikii9 He110/ 300000.00
+6 Klaudia kl@ud Klahdiashio29! 45000.00
+9 Kleant ninja08! Kl#0 25000.00
+5 albi almehmet Al12@ 20000.00
+8 Espera ehyssaa Esp12341!! 250000.00
+7 Santjago santii Sansan123? 300000.00
+10 Vanesa vanii Pas42! 80000.16
+13 prov prov Prov1! 10000.00

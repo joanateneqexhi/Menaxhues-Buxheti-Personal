@@ -48,23 +48,39 @@ int main()
             case 1:
             {
                 system("clear");  //system ("cls")  - per Windows
-                if (menu_admin() == -1)
+                char admin_pass[20];
+                for(int i = 3; i > 0; i--)
                 {
-                    // Mesazhi i gabimit specifik eshte bere sapo eshte hasur gabimi
-                    printf("Po mbyllet programi...\n");
-                    return -1;
+                    printf("Vendosni passwordin e admin-it: ");
+                    scanf("%s", admin_pass);
+                    if (strcmp(admin_pass, ADMIN_PASS) != 0)
+                    {
+                        printf("Passwordi i gabuar. Mund te provoni dhe %d here.\n\n", i - 1);
+                    }
+                    else
+                        break;
                 }
+                if (strcmp(admin_pass, ADMIN_PASS) == 0)
+                {
+                    system("clear");
+                    menu_admin();
+                }
+                else
+                {
+                    printf("Ju nuk mund te logoheni si administrator!\n\n");
+                }    
                 break;
             }
             case 2:
             {
                 system("clear");
-                if (menu_user() == -1)
-                {
-                    // Mesazhi i gabimit specifik eshte bere sapo eshte hasur gabimi
-                    printf("Po mbyllet programi...\n");
-                    return 0;
-                }
+                menu_user();
+                // if (menu_user() == -1)
+                // {
+                //     // Mesazhi i gabimit specifik eshte bere sapo eshte hasur gabimi
+                //     printf("Po mbyllet programi...\n");
+                //     return 0;
+                // }
                 break;
             }
             case 3:

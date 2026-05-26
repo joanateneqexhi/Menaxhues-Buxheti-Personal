@@ -1,6 +1,6 @@
 #include "header.h"
 
-int menu_user(void)
+void menu_user(void)
 {
     printf("                           MENU PERDORUES\n");
     printf("---------------------------------------------------------------------\n\n");
@@ -77,7 +77,7 @@ int menu_user(void)
                 system("clear");
                 printf("                               MENU\n");
                 printf("---------------------------------------------------------------------\n\n");
-                return 0;
+                return ;
             }
             default:
             {
@@ -86,7 +86,6 @@ int menu_user(void)
             }
         }
     }
-    return 0;
 }
 
 //                                          Shfaq menu

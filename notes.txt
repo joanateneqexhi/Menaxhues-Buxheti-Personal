@@ -1,0 +1,5 @@
+extra:
+
+-kur nuk gjehet perdoruesi me id (funx 3 - admin) i jepet mundesia ta shtoj
+-passwordi i adminit ka 3 shance qe te gjehet sakte
+-ndrysho te dhenat e nje perdoruesi ekzistues - ka opsion te zgjedh 1 te dhene ose te gjitha
