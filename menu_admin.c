@@ -12,7 +12,7 @@ void menu_admin(void)
     printf("6. Printoni të gjithë të dhënat e përdoruesve\n");
     printf("7. Kërkoni një përdorues sipas username\n");
     printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
-    printf("9. Shto / Ndrysho / Fshi kategori\n");
+    printf("9. Modifiko kategori\n");
     printf("10. Statistika të sistemit\n");
     //(numri total i përdoruesve, numri total i shpenzimeve, 
     //përdoruesi me më shumë / më pak shpenzime, etj.)
@@ -79,21 +79,21 @@ void menu_admin(void)
             case 8:
             {
                 system("clear");
-                rradhit_users_username();
+                rradhit_users_sipas_username();
                 shfaq_menu_admin();
                 break;
             }
             case 9:
             {
                 system("clear");
-
+                modifiko_kategorite();
                 shfaq_menu_admin();
                 break;
             }
             case 10:
             {
                 system("clear");
-
+                statistika_sistemi();
                 shfaq_menu_admin();
                 break;
             }
@@ -127,7 +127,7 @@ void shfaq_menu_admin(void)
     printf("6. Printoni të gjithë të dhënat e përdoruesve\n");
     printf("7. Kërkoni një përdorues sipas username\n");
     printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
-    printf("9. Shto / Ndrysho / Fshi kategori\n");
+    printf("9. Modifiko kategori\n");
     printf("10. Statistika të sistemit\n");
     printf("11. Dilni nga menuja e administratorit\n");
 }
@@ -145,7 +145,7 @@ int shto_user(void)
     printf("Jepni te dhenat per user-in e ri:\n");
 
     // ID + kontrolli
-    perdoruesit[user_aktual].id_user = merr_id_input();
+    perdoruesit[user_aktual].id_user = merr_id_input("user");
 
     // Emri
     printf("Emri: ");
@@ -241,17 +241,22 @@ void fshi_user(void)
     //Nuk perdor kerko_user_sipas_id sepse ajo krijon ID nese nuk gjehet (nese do admini)
     while (1)
     {
-        scanf("%d", &id);
+        if (scanf("%d", &id) != 1)
+        {
+            printf("Vendosni nje vlere numerike!");
+            while (getchar() != '\n');
+            continue;
+        }
         // kontrollo_id_ekzistuese shikon nese eshte valid (ekziston + pozitive) 
         // dhe nese po, rikthen indexin
-        if (kontrollo_id_ekzistuese(id) == -1) 
+        if (kontrollo_id_ekzistuese(id, "user") == -1) 
         {
             printf("Vendosni ID e sakte: ");
             continue;
         }
         break;
     }
-    index = kontrollo_id_ekzistuese(id);
+    index = kontrollo_id_ekzistuese(id, "user");
     strcpy(emri_temp, perdoruesit[index].emri);
     for (int i = index; i < user_aktual - 1; i++)
     {       
@@ -297,7 +302,7 @@ void ndyrsho_user(void)
     {
         case 1: //ID
         {
-            perdoruesit[id_index].id_user = merr_id_input();
+            perdoruesit[id_index].id_user = merr_id_input("user");
             printf("\n\nID u ndryshua me sukses!\n\n\n");
             break;
         }
@@ -328,7 +333,7 @@ void ndyrsho_user(void)
         }
         case 6: //Te gjitha
         {
-            perdoruesit[id_index].id_user = merr_id_input();
+            perdoruesit[id_index].id_user = merr_id_input("user");
             printf("Emri: ");
             scanf("%s", perdoruesit[id_index].emri);
             merr_username(perdoruesit[id_index].username);
@@ -397,8 +402,7 @@ void kerko_user_sipas_username(void)
     }
 }
 
-// Vetem per printim, nuk ruhet ne file
-void rradhit_users_username(void)
+void rradhit_users_sipas_username(void)
 {
     int i, j;
     struct perdorues temp;
@@ -415,19 +419,30 @@ void rradhit_users_username(void)
         }
     }
     shfaq_users_full();
+    char pergjigja[4];
+    printf("Deshiron ta ruash kete renditje ne file? (Po/Jo):  ");
+    scanf("%s", pergjigja);
+    if (strcmp(pergjigja, "po") == 0 || strcmp(pergjigja, "Po") == 0 || 
+        strcmp(pergjigja, "PO") == 0)
+    {
+        ruaj_users();
+        printf("\nRUAJTJA U BE ME SUKSES!\n");
+    }
 }
 
 void modifiko_kategorite(void)
 {
     int opsioni;
-    printf("1. Shto\n2.Ndrysho\n3.Fshi\n");
-    printf("Zgjidh opsionin (1-3): ");
+    printf("Ju mund te:\n");
+    printf("1. Shtoni nje kategori\n2. Ndryshoni nje kategori\n3. Fshini nje kategori\n");
+    printf("4. Shfaqni kategorite\n5. Kthehu mbrapsht\n\n");
+    printf("Zgjidhni opsionin (1-4): ");
     while (1)
     {
         scanf("%d", &opsioni);
-        if (opsioni < 1 || opsioni > 3)
+        if (opsioni < 1 || opsioni > 4)
         {
-            printf("Zgjidhni opsion te duhur (1-3): ");
+            printf("Zgjidhni opsion te duhur (1-4): ");
             continue;
         }
         break;
@@ -436,18 +451,109 @@ void modifiko_kategorite(void)
     {
         case 1:
         {
+            printf("\nVendosni te dhenat e kategorise qe doni te shtoni:\n");
+            kategorite[kategoria_aktuale].id_kategori = merr_id_input("kategorite");
+            printf("Emri: ");
+            scanf("%s", kategorite[kategoria_aktuale].emertim);
+            printf("Pershkrimi (max 150 karaktere): ");
+            while(getchar() != '\n');
+            scanf("%[^\n]", kategorite[kategoria_aktuale].pershkrim);
+            kategoria_aktuale++;
             break;
         }
         case 2:
         {
+            if (ndrysho_kategori() == -1)
+            {
+                return ;
+            }
             break;
         }
         case 3:
         {
+            fshi_kategori();
+            break;
+        }
+        case 4:
+        {
+            shfaq_kategorite_full();
+            return ;
+        }
+        case 5:
+        {
+            system("clear");
+            return ;
+        }
+        default:
+        {
+            printf("Error!\n");
+            return ;
+        }
+    }
+    if (ruaj_kategorite() != -1 )
+    {
+        printf("\nKATEGORIA U MODIFIKUA ME SUKSES!\n");
+    }
+    else 
+    {
+        printf("\nPati problem ne modifikimin e kategorise!\n");
+    }
+}
+
+void statistika_sistemi(void)
+{
+    int opsioni;
+    printf("Ju mund te shikoni keto statistika: \n");
+    printf("1. Numri total i perdoruesve\n2. Numri total i shpenzimeve\n");
+    printf("3. Numri total i kategorive\n4. Numri total i shpenzimeve\n");
+    printf("5. Perdoruesi me me shume shpenzime\n6. Perdoruesi me me pak shpenzime\n");
+    printf("\nZgjidhni njeren prej tyre (1-4): ");
+    while (1)
+    {
+        scanf("%d", &opsioni);
+        if (opsioni < 0 || opsioni > 5)
+        {
+            printf("Vendosni opsion te sakte! (1-5): ");
+            continue;
+        }
+        break;
+    }
+
+    switch(opsioni)
+    {
+        case 1:
+        {
+            printf("\nNumri total i perdoruesve eshte %d.\n", user_aktual);
+            break;
+        }
+        case 2:
+        {
+            printf("\nNumri total i shpenzimeve eshte %d.\n", shpenzim_aktual);
+            break;
+        }
+        case 3:
+        {
+            printf("\nNumri total i kategorive eshte %d.\n", kategoria_aktuale);
+            break;
+        }
+        case 4:
+        {
+            printf("\nNumri total i shpenzimeve eshte %d.\n", shpenzim_aktual);
+            break;
+        }
+        case 5:
+        {
+            // printf("Perdoruesi me me shume shpenzime eshte %s", perdoruesit[].emri);
+            break;
+        }
+        case 6:
+        {
+            // printf("Perdoruesi me me pak shpenzime eshte %s", perdoruesit[].emri);
             break;
         }
         default:
         {
+            printf("Error!\n");
             break;
         }
     }
@@ -455,18 +561,7 @@ void modifiko_kategorite(void)
 
 //                                         Utilities
 
-int gjej_user_id(int id)
-{
-    for (int i = 0; i < user_aktual; i++)
-    {
-        if (id == perdoruesit[i].id_user)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-
+//kontrollo nese ekziston
 int gjej_user_username(char *username)
 {
     for (int i = 0; i < user_aktual; i++)
@@ -479,47 +574,131 @@ int gjej_user_username(char *username)
     return -1;
 }
 
-// kontroll ID pozitive dhe te ekzitoje -> per tek funksioni kerko sipas id + fshi
-int kontrollo_id_ekzistuese(int id)
+int ndrysho_kategori(void)
 {
-    int index;
-    if (id <= 0)
-        {
-            printf("ID ne sistem jane numra pozitive!\n");
-            return -1;
-        }
-        index = gjej_user_id(id);
-        if (index == -1)
-        {
-            printf("User me kete ID nuk ekziston!\n");
-            return -1;
-        }
-    return index; //ID eshte valid
-}
-
-// kontroll ID pozitive dhe NUK ekziston -> per tek shto + ndrysho user
-int merr_id_input(void)
-{
-    int n;
+    int zgjedhja;
+    int id;
+    printf("\nVendosni ID e kategorise qe doni te ndryshoni: ");
     while (1)
     {
-        printf("\nID: ");
-        while (getchar() != '\n');
-        scanf("%d", &n);
-        if (n <= 0)
+        if (scanf("%d", &id) != 1)
         {
-            printf("Vendosni nje numer ID pozitiv!");
+            printf("Vendosni nje vlere numerike: ");
+            while (getchar() != '\n');
             continue;
         }
-        if (gjej_user_id(n) != -1)
+        if (kontrollo_id_ekzistuese(id, "kategorite") == -1)
         {
-            printf("Kjo ID eshte e zene!");
+            printf("Vendosni ID te sakte: ");
             continue;
         }
         break;
     }
-    return n;
+    int id_index = gjej_kategori_id(id);
+    printf("\nJu mund te ndryshoni:\n");
+    printf("1. ID\n2. Emrin\n3. Pershkrimin\n4. Te gjitha\n5. Kthehu mbrapsht\n\n");
+    printf("Zgjidhni opsionin qe deshironi (1-5): ");
+    while (1)
+    {
+        scanf("%d", &zgjedhja);
+        if (zgjedhja < 1 || zgjedhja > 5)
+        {
+            printf("\nZgjidhni nje opsion te sakte! (1-5): ");
+            continue;
+        }
+        break;
+    }
+
+    switch(zgjedhja)
+    {
+        case 1:
+        {
+            kategorite[id_index].id_kategori = merr_id_input("kategorite");
+            printf("\nKATEGORIA U NDRYSHUA ME SUKSES!\n");
+            break;
+        }
+        case 2:
+        {
+            printf("Emri: ");
+            while(getchar()!='\n');
+            scanf("%s", kategorite[id_index].emertim);
+            printf("\nEMRI I KATEGORISE U NDRYSHUA ME SUKSES!\n");
+            break;
+        }
+        case 3:
+        {
+            printf("Pershkrimi (max 150 karaktere): ");
+            while(getchar() != '\n');
+            scanf("%[^\n]", kategorite[id_index].pershkrim);
+            printf("\nPERSHKRIMI I KATEGORISE U NDRYSHUA ME SUKSES!\n");
+            break;
+        }
+        case 4:
+        {
+            kategorite[id_index].id_kategori = merr_id_input("kategorite");
+            printf("Emri: ");
+            scanf("%s", kategorite[id_index].emertim);
+            printf("Pershkrimi (max 150 karaktere): ");
+            while(getchar() != '\n');
+            scanf("%[^\n]", kategorite[id_index].pershkrim);
+            break;
+        }
+        case 5:
+        {
+            system("clear");
+            return -1;
+        }
+        default:
+        {
+            printf("Error!\n");
+            return -1;
+        }
+    }
+    return 1;
 }
+
+void fshi_kategori(void)
+{
+    int id;
+    printf("\nVendosni ID e kategorise qe doni te fshini: ");
+    while (1)
+    {
+        if (scanf("%d", &id) != 1)
+        {
+            printf("Vendosni nje vlere numerike: ");
+            while (getchar() != '\n');
+            continue;
+        }
+        if (kontrollo_id_ekzistuese(id, "kategorite") == -1)
+        {
+            printf("Vendosni ID te sakte: ");
+            continue;
+        }
+        break;
+    }
+    int id_index = gjej_kategori_id(id);
+    for (int i = id_index; i < kategoria_aktuale - 1; i++)
+    {
+        kategorite[i] = kategorite[i + 1];
+    }
+    kategoria_aktuale--;
+}
+
+void shfaq_kategorite_full(void)
+{
+    printf("\n                                         KATEGORITE \n");
+    printf("__________________________________________________________________________________________\n\n");
+    for (int i = 0; i < kategoria_aktuale; i++)
+    {
+        printf("Kategoria %d", i + 1);
+        printf("\n-------------------------------------------------------------------------------------------\n");
+        printf("ID: %d\nEmri: %s\nPershkrimi: %s", 
+            kategorite[i].id_kategori, kategorite[i].emertim, kategorite[i].pershkrim);
+        printf("\n-------------------------------------------------------------------------------------------\n\n\n");
+    }
+}
+
+//                                        merr_*_input
 
 float merr_buxhet_input(void)
 {
@@ -543,6 +722,7 @@ float merr_buxhet_input(void)
     return buxhet;
 }
 
+//kontrollo qe mos te jete i zene
 void merr_username(char *username)
 {
     char temp[15];

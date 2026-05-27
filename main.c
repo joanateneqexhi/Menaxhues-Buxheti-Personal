@@ -74,13 +74,38 @@ int main()
             case 2:
             {
                 system("clear");
-                menu_user();
-                // if (menu_user() == -1)
-                // {
-                //     // Mesazhi i gabimit specifik eshte bere sapo eshte hasur gabimi
-                //     printf("Po mbyllet programi...\n");
-                //     return 0;
-                // }
+                char user_username[15];
+                char user_pass[20];
+                int user_index;
+                printf("Vendosni username tuaj:\n");
+                while (1)
+                {
+                    scanf("%s", user_username);
+                    user_index = gjej_user_username(user_username);
+                    if (user_index == -1)
+                    {
+                        printf("\nKy username nuk ekziston!");
+                        printf("\nProvoni perseri: ");
+                    }
+                    else
+                        break;
+                }
+                for (int i = 3; i > 0; i--)
+                {
+                    printf("Vendosni password-in tuaj: ");
+                    scanf("%s", user_pass);
+                    if (strcmp(user_pass, perdoruesit[user_index].password) == 0)
+                    {
+                        system("clear");
+                        printf(":)  Mireseerdhe %s!\n\n\n", perdoruesit[user_index].emri);
+                        menu_user(user_index);
+                        break;
+                    }
+                    else
+                    {
+                        printf("Passwordi i gabuar. Mund te provoni dhe %d here.\n\n", i - 1);
+                    }
+                }
                 break;
             }
             case 3:

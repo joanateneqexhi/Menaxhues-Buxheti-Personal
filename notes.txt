@@ -1,8 +1,21 @@
 extra:
 
--kontroll per id >0 kudo, kontroll per fails te funx inicializo, save...
--kur nuk gjehet perdoruesi me id (funx 3 - admin) i jepet mundesia ta shtoj
--passwordi i adminit ka 3 shance qe te gjehet sakte
--ndrysho te dhenat e nje perdoruesi ekzistues - ka opsion te zgjedh 1 te dhene ose te gjitha
+-edge case handling
+kontroll per id > 0 && id = numer && id unike kudo, kontroll per fails te funx inicializo, save...
+kontroll qe shuma numer && > 0
+kontroll per daten
 
-rradhit dhe ne file sipas username/id
+-kur nuk gjehet perdoruesi me id (funx 3 - admin) i jepet mundesia ta shtoj
+
+-passwordi ka 3 shance qe te gjehet sakte
+
+-ndrysho te dhenat e nje perdoruesi ekzistues - ka opsion te zgjedh 1 te dhene ose te gjitha
+- ndrysho te dhenat e kategorise - 1 ose te gjitha
+
+-funx 10 admin: numri total i kategorive, numri total i shpenzimeve, 
+perdoruesi me me shume/pak te ardhura
+
+-rradhit *dhe ne file* sipas username/ (SHTO ID)
+
+
+MBARO FUNX 10 admin

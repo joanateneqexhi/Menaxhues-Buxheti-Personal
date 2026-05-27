@@ -13,7 +13,7 @@
 # define MAX_KATEGORI 25
 
 // password per tu loguar si admin
-# define ADMIN_PASS "Admin@2026"
+# define ADMIN_PASS "1"
 
 //                                        Strukturat
 
@@ -39,7 +39,7 @@ struct shpenzim
     int id_user;
     int id_kategori;
     float shuma;
-    char data[10];
+    char data[11];
     char pershkrim[150];
 };
 
@@ -48,7 +48,7 @@ struct te_ardhura
     int id_hyrje;
     int id_user;
     float shuma;
-    char data[10];
+    char data[11];
     char burimi[30];
 };
 
@@ -65,14 +65,13 @@ extern struct shpenzim shpenzimet[MAX_SHPENZIME];
 extern struct te_ardhura te_ardhurat[MAX_ARDHURA];
 
 //                                           Funksionet
-void rradhit_users_username(void);
 
 //                                            - Menu
 int menu_1(void);
 void shfaq_menu_admin(void);
 void shfaq_menu_user(void);
 void menu_admin(void);
-void menu_user(void);
+void menu_user(int user_index);
 
 int inicializo_file(char *filename);
 
@@ -89,14 +88,14 @@ int ruaj_kategorite(void);
 int ruaj_shpenzime(void);
 int ruaj_ardhura(void);
 
-//                                            - gjej_* kontrollo_*
-int gjej_user_username(char *username);
+//                                            - ID utilities
+
+int kontrollo_id_ekzistuese(int id, char *struktura);
+int merr_id_input(char *struktura);
 int gjej_user_id(int id);
-int kontrollo_id_ekzistuese(int id);
-int merr_id_input(void);
-float merr_buxhet_input(void);
-void merr_username(char *username);
-void merr_pass_input(char *password);
+int gjej_kategori_id(int id);
+int gjej_shpenzim_id(int id);
+int gjej_ardhura_id(int id);
 
 //                                            - menu_admin
 int shto_user(void);
@@ -106,8 +105,25 @@ void fshi_user(void);
 void ndyrsho_user(void);
 void shfaq_users_full(void);
 void kerko_user_sipas_username(void);
-void rradhit_users_username(void);
+void rradhit_users_sipas_username(void);
+void modifiko_kategorite(void);
+int ndrysho_kategori(void);
+void fshi_kategori(void);
+void shfaq_kategorite_full(void);
+void statistika_sistemi(void);
+
+//                                            - admin utilities
+int gjej_user_username(char *username);
+float merr_buxhet_input(void);
+void merr_username(char *username);
+void merr_pass_input(char *password);
 
 //                                            - menu_user
+void shto_shpenzim(int user_index);
+
+//                                            - user_utilities
+int kontroll_data(char *data);
+void shfaq_kategorite(void);
+
 
 #endif
