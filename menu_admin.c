@@ -14,15 +14,16 @@ void menu_admin(void)
     printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
     printf("9. Modifiko kategori\n");
     printf("10. Statistika të sistemit\n");
+    printf("11. Rradhisni të gjithë përdoruesit sipas ID\n");
     //(numri total i përdoruesve, numri total i shpenzimeve, 
     //përdoruesi me më shumë / më pak shpenzime, etj.)
-    printf("11. Dilni nga menuja e administratorit\n");
+    printf("12. Dilni nga menuja e administratorit\n");
     //(rikthehet në Menu 1)
 
     int n;
     while(1)
     {
-        printf("\nZgjidhni (1-11):   ");
+        printf("\nZgjidhni (1-12):   ");
         // while (getchar() != '\n'); GABIM
         scanf("%d", &n);
         switch(n)
@@ -99,6 +100,13 @@ void menu_admin(void)
             }
             case 11:
             {
+                system("clear");
+                rradhit_users_sipas_id();
+                shfaq_menu_admin();
+                break;  
+            }
+            case 12:
+            {
                 system ("clear");
                 printf("                               MENU\n");
                 printf("---------------------------------------------------------------------\n\n");
@@ -106,7 +114,7 @@ void menu_admin(void)
             }
             default:
             {
-                printf("Zgjidhni nje opsion te sakte (1-11)!    ");
+                printf("Zgjidhni nje opsion te sakte (1-12)!    ");
                 break;
             }
         }
@@ -129,7 +137,8 @@ void shfaq_menu_admin(void)
     printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
     printf("9. Modifiko kategori\n");
     printf("10. Statistika të sistemit\n");
-    printf("11. Dilni nga menuja e administratorit\n");
+    printf("11. Rradhisni të gjithë përdoruesit sipas ID\n");
+    printf("12. Dilni nga menuja e administratorit\n");
 }
 
 //                                       Funksionet
@@ -258,15 +267,43 @@ void fshi_user(void)
     }
     index = kontrollo_id_ekzistuese(id, "user");
     strcpy(emri_temp, perdoruesit[index].emri);
+    int id_user_temp = perdoruesit[index].id_user;
     for (int i = index; i < user_aktual - 1; i++)
     {       
         perdoruesit[i] = perdoruesit[i + 1]; 
     }
     user_aktual--;
-    if (ruaj_users() != -1)
+
+    // Fshirja e shpenzimeve te perdoruesit
+    for (int i = shpenzim_aktual - 1; i >= 0; i--)
+    {
+        if (shpenzimet[i].id_user == id_user_temp)
+        {
+            for (int j = i; j < shpenzim_aktual - 1; j++)
+            {
+                shpenzimet[j] = shpenzimet[j + 1];
+            }
+            shpenzim_aktual--;
+        }
+    }
+
+    // Fshirja e te ardhurave te perdoruesit
+    for (int i = e_ardhura_aktuale - 1; i >= 0; i--)
+    {
+        if (te_ardhurat[i].id_user == id_user_temp)
+        {
+            for (int j = i; j < e_ardhura_aktuale - 1; j++)
+            {
+                te_ardhurat[j] = te_ardhurat[j + 1];
+            }
+            e_ardhura_aktuale--;
+        }
+    }
+
+    if (ruaj_te_dhenat() != -1)
     {
         system("clear");
-        printf("\nPERDORUESI \"%s\" U FSHI ME SUKSES!\n", emri_temp);
+        printf("\nPERDORUESI \"%s\" ME GJITHE TE DHENAT E TIJ U FSHI ME SUKSES!\n", emri_temp);
     }
     else
     {
@@ -430,6 +467,34 @@ void rradhit_users_sipas_username(void)
     }
 }
 
+void rradhit_users_sipas_id(void)
+{
+    int i, j;
+    struct perdorues temp;
+    for (i = 0; i < user_aktual - 1; i++)
+    {
+        for (j = i + 1; j < user_aktual; j++)
+        {
+            if (perdoruesit[i].id_user > perdoruesit[j].id_user)
+            {
+                temp = perdoruesit[i];
+                perdoruesit[i] = perdoruesit[j];
+                perdoruesit[j] = temp;
+            }
+        }
+    }
+    shfaq_users_full();
+    char pergjigja[4];
+    printf("Deshiron ta ruash kete renditje ne file? (Po/Jo):  ");
+    scanf("%s", pergjigja);
+    if (strcmp(pergjigja, "po") == 0 || strcmp(pergjigja, "Po") == 0 || 
+        strcmp(pergjigja, "PO") == 0)
+    {
+        ruaj_users();
+        printf("\nRUAJTJA U BE ME SUKSES!\n");
+    }
+}
+
 void modifiko_kategorite(void)
 {
     int opsioni;
@@ -507,13 +572,14 @@ void statistika_sistemi(void)
     printf("1. Numri total i perdoruesve\n2. Numri total i shpenzimeve\n");
     printf("3. Numri total i kategorive\n4. Numri total i te ardhurave\n");
     printf("5. Perdoruesi me me shume shpenzime\n6. Perdoruesi me me pak shpenzime\n");
-    printf("\nZgjidhni njeren prej tyre (1-6): ");
+    printf("7. Perdoruesi me me shume te ardhura\n8. Perdoruesi me me pak te ardhura\n");
+    printf("\nZgjidhni njeren prej tyre (1-8): ");
     while (1)
     {
         scanf("%d", &opsioni);
-        if (opsioni < 1 || opsioni > 6)
+        if (opsioni < 1 || opsioni > 8)
         {
-            printf("Vendosni opsion te sakte! (1-6): ");
+            printf("Vendosni opsion te sakte! (1-8): ");
             continue;
         }
         break;
@@ -604,6 +670,72 @@ void statistika_sistemi(void)
                     perdoruesit[index_min].emri, perdoruesit[index_min].username);
 
                 printf("\nKa shpenzuar gjithsej: %.2f leke\n", min_shpenzim);
+            }
+            break;
+        }
+        case 7:
+        {
+            int index_max = -1;
+            float max_ardhura = 0;
+
+            for (int u = 0; u < user_aktual; u++)
+            {
+                float total = 0;
+
+                for (int i = 0; i < e_ardhura_aktuale; i++)
+                {
+                    if (te_ardhurat[i].id_user == perdoruesit[u].id_user)
+                    {
+                        total = total + te_ardhurat[i].shuma;
+                    }
+                }
+
+                if (total > max_ardhura)
+                {
+                    max_ardhura = total;
+                    index_max = u;
+                }
+            }
+
+            if (index_max != -1)
+            {
+                printf("\n\nPerdoruesi me me shume te ardhura eshte %s (%s)", 
+                    perdoruesit[index_max].emri, perdoruesit[index_max].username);
+
+                printf("\nKa regjistruar gjithsej: %.2f leke\n", max_ardhura);
+            }
+            break;
+        }
+        case 8:
+        {
+            int index_min = -1;
+            float min_ardhura = -1;
+
+            for (int u = 0; u < user_aktual; u++)
+            {
+                float total = 0;
+
+                for (int i = 0; i < e_ardhura_aktuale; i++)
+                {
+                    if (te_ardhurat[i].id_user == perdoruesit[u].id_user)
+                    {
+                        total = total + te_ardhurat[i].shuma;
+                    }
+                }
+
+                if (min_ardhura == -1 || total < min_ardhura)
+                {
+                    min_ardhura = total;
+                    index_min = u;
+                }
+            }
+
+            if (index_min != -1)
+            {
+                printf("\n\nPerdoruesi me me pak te ardhura eshte %s (%s)", 
+                    perdoruesit[index_min].emri, perdoruesit[index_min].username);
+
+                printf("\nKa regjistruar gjithsej: %.2f leke\n", min_ardhura);
             }
             break;
         }

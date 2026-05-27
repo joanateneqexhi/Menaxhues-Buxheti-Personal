@@ -24,7 +24,7 @@ void menu_user(int user_index)
 
     while(1)
     {
-        printf("\nZgjidhni (1-12):   ");
+        printf("\nZgjidhni (1-13):   ");
         while (getchar() != '\n');
         scanf("%d", &n);
         switch(n)
@@ -122,7 +122,7 @@ void menu_user(int user_index)
             }
             default:
             {
-                printf("Zgjidhni nje opsion te sakte (1-12)!    ");
+                printf("Zgjidhni nje opsion te sakte (1-13)!    ");
                 break;
             }
         }
@@ -669,6 +669,9 @@ void kerko_shpenzim(int user_index)
                 }
                 break;
             }
+            system("clear");
+            printf("\n\n                       SHPENZIMET (%s)\n", temp_data);
+            printf("________________________________________________________________________\n");
             int nr = 0;
             for (int i = 0; i < shpenzim_aktual; i++)
             {
@@ -730,6 +733,7 @@ void kerko_shpenzim(int user_index)
                 }
                 break;
             }
+            system("clear");
             int nr = 0;
             for (int i = 0; i < shpenzim_aktual; i++)
             {
@@ -923,10 +927,10 @@ void raport_mujor(int user_index)
     printf("\nKursimet tuaja:                  %.2f", total_ardhura - total_shpenzime);
     if (max_shpenzime != 0)
     {
-        printf("\nKategoria ku ju keni shpenzuar me shume eshte: \"%s\"\n", 
+        printf("\nKategoria ku ju keni shpenzuar me shume eshte: \"%s\"", 
             kategorite[index_max_shpenzime].emertim);
     }
-    printf("________________________________________________________________________\n\n\n");
+    printf("\n________________________________________________________________________\n\n\n");
 }
 
 void raport_vjetor(int user_index)

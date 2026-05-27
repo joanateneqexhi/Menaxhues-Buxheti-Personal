@@ -1,4 +1,4 @@
-12
+11
 1 Joana joana_.t Joana123! 10000.00
 2 Livia livia.s L1v1a_ 5000.00
 3 Nensi nensallushi Allush_1 120000.80
@@ -10,4 +10,3 @@
 7 Santjago santii Sansan123? 300000.00
 8 Espera ehyssaa Esp12341!! 250000.00
 11 Besart student Stud1! 500.00
-1354 Arli askura A123444. 1.00

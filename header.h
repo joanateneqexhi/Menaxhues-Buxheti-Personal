@@ -13,7 +13,7 @@
 # define MAX_KATEGORI 25
 
 // password per tu loguar si admin
-# define ADMIN_PASS "1"
+# define ADMIN_PASS "Admin@2026"
 
 // data e sistemit
 # define VITI_MINIMAL 2000
@@ -116,6 +116,7 @@ int ndrysho_kategori(void);
 void fshi_kategori(void);
 void shfaq_kategorite_full(void);
 void statistika_sistemi(void);
+void rradhit_users_sipas_id(void);
 
 //                                            - admin utilities
 int gjej_user_username(char *username);
