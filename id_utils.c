@@ -31,6 +31,10 @@ int merr_id_input(char *struktura)
         {
             u_gjet = gjej_shpenzim_id(id);
         }
+        else if(strcmp(struktura, "te ardhura"))
+        {
+            u_gjet = gjej_ardhura_id(id);
+        }
         if (u_gjet != -1)
         {
             printf("Kjo ID eshte e zene!");
@@ -61,6 +65,10 @@ int kontrollo_id_ekzistuese(int id, char *struktura)
     else if(strcmp(struktura, "shpenzim") == 0)
     {
         index = gjej_shpenzim_id(id);
+    }
+    else if(strcmp(struktura, "ardhura") == 0)
+    {
+        index = gjej_ardhura_id(id);
     }
     if (index == -1)
     {

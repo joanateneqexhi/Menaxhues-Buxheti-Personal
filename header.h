@@ -15,6 +15,11 @@
 // password per tu loguar si admin
 # define ADMIN_PASS "1"
 
+// data e sistemit
+# define VITI_MINIMAL 2000
+# define VITI_AKTUAL 2026
+# define MUAJI_AKTUAL 05
+ 
 //                                        Strukturat
 
 struct perdorues
@@ -120,10 +125,24 @@ void merr_pass_input(char *password);
 
 //                                            - menu_user
 void shto_shpenzim(int user_index);
+void shto_te_ardhura(int user_index);
+void shfaq_shpenzimet(int user_index);
+void shfaq_te_ardhurat(int user_index);
+void raport_mujor_vjetor(int user_index);
+void raport_mujor(int user_index);
+void raport_vjetor(int user_index);
+void kontrollo_buxhetin(int user_index);
+void kerko_shpenzim_sipas_kategorise(int user_index);
+void fshi_shpenzim(int user_index);
+void rendit_shpnezimet_sipas_shumes(int user_index);
+void rendit_shpnezimet_sipas_dates(int user_index);
+void kerko_shpenzim(int user_index);
+void fshi_te_ardhura(int user_index);
 
 //                                            - user_utilities
 int kontroll_data(char *data);
-void shfaq_kategorite(void);
-
+void shfaq_kategorite_id(void);
+void shfaq_kategorite_index(void);
+int krahaso_datat(char *data1, char *data2);
 
 #endif

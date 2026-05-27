@@ -1,7 +1,14 @@
-6
-1 Shendeti | Shpenzime per ilace, vizita mjekesore
+13
+1 Shendeti | Shpenzime per ilace dhe vizita mjekesore
 2 Transporti | Shpenzime per transport publik dhe karburant
-3 Ushqim | Shpenzime per ushqim dhe pije, te blera ne pazar ose te porositura jashte
-4 Argetim | Shpenzime per aktivitete argetuese, te dala me shoqerine etj.
-5 Fatura | Shpenzime per uje, drita, Internet
-7 Veshje | Shpenzime per rroba dhe kepuce
+3 Ushqim | Shpenzime per ushqim dhe pije te blera ne pazar
+4 Argetim | Shpenzime per aktivitete argetuese dhe dalje
+5 Fatura | Shpenzime per faturen e ujit, dritave dhe internetit
+6 Veshje | Shpenzime per rroba, kepuce, aksesore
+7 Arsim | Shpenzime per libra, kurse dhe materiale shkollore
+8 Kozmetike | Shpenzime per produkte kozmetike dhe higjiene
+12 Udhetime | Shpenzime per udhetime brenda dhe jashte shtetit (hoteli, bileta etj.)
+9 Restorante | Shpenzime per ushqime dhe pije jashte shtepise
+10 Elektronike | Shpenzime per pajisje elektronike
+11 Shtepia | Shpenzime per mobilje, pajisje elektroshtepiake dhe riparime shtepie
+13 Tjeter | Shpenzime te ndryshme qe nuk perfshihen ne kategoritë e tjera

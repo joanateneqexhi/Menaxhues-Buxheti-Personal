@@ -505,15 +505,15 @@ void statistika_sistemi(void)
     int opsioni;
     printf("Ju mund te shikoni keto statistika: \n");
     printf("1. Numri total i perdoruesve\n2. Numri total i shpenzimeve\n");
-    printf("3. Numri total i kategorive\n4. Numri total i shpenzimeve\n");
+    printf("3. Numri total i kategorive\n4. Numri total i te ardhurave\n");
     printf("5. Perdoruesi me me shume shpenzime\n6. Perdoruesi me me pak shpenzime\n");
-    printf("\nZgjidhni njeren prej tyre (1-4): ");
+    printf("\nZgjidhni njeren prej tyre (1-6): ");
     while (1)
     {
         scanf("%d", &opsioni);
-        if (opsioni < 0 || opsioni > 5)
+        if (opsioni < 1 || opsioni > 6)
         {
-            printf("Vendosni opsion te sakte! (1-5): ");
+            printf("Vendosni opsion te sakte! (1-6): ");
             continue;
         }
         break;
@@ -538,17 +538,73 @@ void statistika_sistemi(void)
         }
         case 4:
         {
-            printf("\nNumri total i shpenzimeve eshte %d.\n", shpenzim_aktual);
+            printf("\nNumri total i te ardhurave eshte %d.\n", e_ardhura_aktuale);
             break;
         }
         case 5:
         {
-            // printf("Perdoruesi me me shume shpenzime eshte %s", perdoruesit[].emri);
+            int index_max = -1;
+            float max_shpenzim = 0;
+
+            for (int u = 0; u < user_aktual; u++)
+            {
+                float total = 0;
+
+                for (int i = 0; i < shpenzim_aktual; i++)
+                {
+                    if (shpenzimet[i].id_user == perdoruesit[u].id_user)
+                    {
+                        total = total + shpenzimet[i].shuma;
+                    }
+                }
+
+                if (total > max_shpenzim)
+                {
+                    max_shpenzim = total;
+                    index_max = u;
+                }
+            }
+
+            if (index_max != -1)
+            {
+                printf("\n\nPerdoruesi me me shume shpenzime eshte %s (%s)", 
+                    perdoruesit[index_max].emri, perdoruesit[index_max].username);
+
+                printf("\nKa shpenzuar gjithsej: %.2f leke\n", max_shpenzim);
+            }
             break;
         }
         case 6:
         {
-            // printf("Perdoruesi me me pak shpenzime eshte %s", perdoruesit[].emri);
+            int index_min = -1;
+            float min_shpenzim = -1;
+
+            for (int u = 0; u < user_aktual; u++)
+            {
+                float total = 0;
+
+                for (int i = 0; i < shpenzim_aktual; i++)
+                {
+                    if (shpenzimet[i].id_user == perdoruesit[u].id_user)
+                    {
+                        total = total + shpenzimet[i].shuma;
+                    }
+                }
+
+                if (min_shpenzim == -1 || total < min_shpenzim)
+                {
+                    min_shpenzim = total;
+                    index_min = u;
+                }
+            }
+
+            if (index_min != -1)
+            {
+                printf("\n\nPerdoruesi me me pak shpenzime eshte %s (%s)", 
+                    perdoruesit[index_min].emri, perdoruesit[index_min].username);
+
+                printf("\nKa shpenzuar gjithsej: %.2f leke\n", min_shpenzim);
+            }
             break;
         }
         default:
@@ -660,6 +716,7 @@ int ndrysho_kategori(void)
 void fshi_kategori(void)
 {
     int id;
+    shfaq_kategorite_id();
     printf("\nVendosni ID e kategorise qe doni te fshini: ");
     while (1)
     {

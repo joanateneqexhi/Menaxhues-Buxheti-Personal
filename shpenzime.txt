@@ -1,4 +1,51 @@
-3
-1 11 5 15000.00 12/02/2026 Uji
-2 11 7 2500.00 09/02/2025 Kepuce te reja
-3 11 1 2000.00 01/03/2026 Analize Gjaku
+50
+1 11 7 2500.00 09/02/2026 Kepuce te reja
+2 4 3 150.00 12/02/2025 Dreke ne mense
+3 8 5 1500.00 01/02/2026 Fatura internet
+4 2 4 700.00 14/02/2025 Kinema me shoqerine
+5 6 7 800.00 28/02/2026 Bluze e re
+6 1 3 200.00 18/07/2025 Ushqime javore
+7 9 1 500.00 10/03/2026 Vizite mjekesore 
+8 3 4 300.00 15/03/2025 Koncert
+9 7 8 150.00 20/03/2026 Shampo dhe produkte
+10 5 3 180.00 25/03/2025 Dreke ne restorant
+11 1 5 3000.00 05/02/2026 Fatura e dritave
+12 10 3 2000.00 10/02/2025 Ushqime javore
+13 4 2 1500.00 15/02/2026 Karburant
+14 8 9 2500.00 20/02/2025 Dreke jashte
+15 2 6 3000.00 25/02/2026 Kepuce sportive
+16 7 5 2800.00 03/03/2025 Fatura uji
+17 5 3 1800.00 08/03/2026 Ushqime javore
+18 9 2 1200.00 18/03/2025 Karburant
+19 3 10 4500.00 22/03/2026 Telefon i ri
+20 6 9 1800.00 28/03/2025 Darke me familjen
+21 8 11 15000.00 02/02/2026 Riparim banjo
+22 7 10 80000.00 10/02/2025 Laptop i ri
+23 1 6 12000.00 18/02/2026 Veshje dimri
+24 4 9 8000.00 25/02/2025 Restorant luksoz
+25 10 5 5000.00 01/03/2026 Fatura mujore
+26 2 11 20000.00 05/03/2025 Mobilje te reja
+27 7 3 3000.00 12/03/2026 Ushqime javore
+28 5 4 15000.00 20/03/2025 Pushime fundjavore
+29 9 1 2000.00 01/02/2026 Analize gjaku
+30 3 3 1500.00 08/02/2025 Ushqime javore
+31 6 2 1600.00 15/02/2026 Abone mujore autobusi
+32 11 8 600.00 22/02/2025 Produkte higjiene
+33 4 1 1500.00 05/03/2026 Vizite dentisti
+34 8 3 1200.00 12/03/2025 Ushqime javore
+35 1 9 5400.00 18/07/2025 Dreke jashte per ditelindje 
+36 6 6 5000.00 03/02/2025 Cante e re
+37 2 9 3500.00 10/02/2026 Darke romantike
+38 5 12 20000.00 08/02/2026 Ski fundjavore
+39 5 5 4000.00 24/02/2026 Fatura mujore
+40 7 8 1500.00 03/03/2025 Produkte kozmetike
+41 3 6 8000.00 10/03/2026 Veshje pranvere
+42 9 9 4000.00 17/03/2025 Dreke me miqte
+43 7 11 50000.00 05/02/2026 Rinovim dhome
+44 1 10 25000.00 12/02/2025 TV i ri
+45 8 3 5000.00 19/02/2026 Ushqime javore
+46 4 9 8000.00 26/02/2025 Restorant luksoz
+47 2 2 3000.00 05/03/2026 Karburant
+48 10 6 15000.00 12/03/2025 Veshje sezoni
+49 10 3 2000.00 17/02/2025 Ushqime javore
+50 7 12 5000.00 15/03/2025 Karburant udhetim ne Gjirokaster

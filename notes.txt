@@ -1,5 +1,7 @@
 extra:
 
+-FUNX 12 USER - FSHI TE ARDHURA
+
 -edge case handling
 kontroll per id > 0 && id = numer && id unike kudo, kontroll per fails te funx inicializo, save...
 kontroll qe shuma numer && > 0
@@ -17,5 +19,10 @@ perdoruesi me me shume/pak te ardhura
 
 -rradhit *dhe ne file* sipas username/ (SHTO ID)
 
+- menaxhon dhe file te parenditur mire (ku ID dhe index nuk perputhen)
 
 MBARO FUNX 10 admin
+KUR FSHIHET USER FSHI DHE SHPENZIMET DHE TE ARDHURAT
+
+testo joana 02 2026 per kontroll buxhetin
+18/07/2025 2 shpenzime
