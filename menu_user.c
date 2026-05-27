@@ -31,91 +31,91 @@ void menu_user(int user_index)
         {
             case 1:
             {
-                system("clear");
+                system("cls");
                 shto_shpenzim(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 2:
             {
-                system("clear");
+                system("cls");
                 shto_te_ardhura(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 3:
             {
-                system("clear");
+                system("cls");
                 shfaq_shpenzimet(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 4:
             {
-                system("clear");
+                system("cls");
                 shfaq_te_ardhurat(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 5:
             {
-                system("clear");
+                system("cls");
                 raport_mujor_vjetor(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 6:
             {
-                system("clear");
+                system("cls");
                 kontrollo_buxhetin(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 7:
             {
-                system("clear");
+                system("cls");
                 kerko_shpenzim_sipas_kategorise(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 8:
             {
-                system("clear");
+                system("cls");
                 fshi_shpenzim(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 9:
             {
-                system("clear");
+                system("cls");
                 rendit_shpnezimet_sipas_shumes(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 10:
             {
-                system("clear");
+                system("cls");
                 rendit_shpnezimet_sipas_dates(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 11:
             {
-                system("clear");
+                system("cls");
                 kerko_shpenzim(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 12:
             {
-                system("clear");
+                system("cls");
                 fshi_te_ardhura(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 13:
             {
-                system("clear");
+                system("cls");
                 printf("                               MENU\n");
                 printf("---------------------------------------------------------------------\n\n");
                 return ;
@@ -364,13 +364,13 @@ void raport_mujor_vjetor(int user_index)
     {
         case 1:
         {
-            system("clear");
+            system("cls");
             raport_mujor(user_index);
             break;
         }
         case 2:
         {
-            system("clear");
+            system("cls");
             raport_vjetor(user_index);
             break;
         }
@@ -458,7 +458,7 @@ void kerko_shpenzim_sipas_kategorise(int user_index)
         }
         break;
     }
-    system("clear");
+    system("cls");
     printf("\n\n      KATEGORIA E ZGJEDHUR: %s", kategorite[index_kategori].emertim);
     printf("\n____________________________________________\n\n");
     int nr = 0;
@@ -645,7 +645,7 @@ void kerko_shpenzim(int user_index)
                 }
                 break;
             }
-            system("clear");
+            system("cls");
             printf("\n\nSHPENZIMI U GJET!");
             printf("\n-----------------------------------\n");
             printf("ID: %d\nKategoria: %s\nPershkrimi: %s\nShuma: %.2f\nData: %s", 
@@ -669,7 +669,7 @@ void kerko_shpenzim(int user_index)
                 }
                 break;
             }
-            system("clear");
+            system("cls");
             printf("\n\n                       SHPENZIMET (%s)\n", temp_data);
             printf("________________________________________________________________________\n");
             int nr = 0;
@@ -698,7 +698,7 @@ void kerko_shpenzim(int user_index)
         }
         case 3:
         {
-            system("clear");
+            system("cls");
             kerko_shpenzim_sipas_kategorise(user_index);
             break;
         }
@@ -733,7 +733,7 @@ void kerko_shpenzim(int user_index)
                 }
                 break;
             }
-            system("clear");
+            system("cls");
             int nr = 0;
             for (int i = 0; i < shpenzim_aktual; i++)
             {

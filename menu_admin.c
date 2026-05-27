@@ -30,84 +30,84 @@ void menu_admin(void)
         {
             case 1:
             {
-                system("clear");
+                system("cls");
                 shto_user();
                 shfaq_menu_admin(); 
                 break;
             }
             case 2:
             {
-                system("clear");
+                system("cls");
                 shfaq_users();
                 shfaq_menu_admin();
                 break;
             }
             case 3:
             {
-                system("clear"); 
+                system("cls"); 
                 kerko_user_sipas_id();
                 shfaq_menu_admin();
                 break;
             }
             case 4:
             {
-                system("clear");
+                system("cls");
                 fshi_user();
                 shfaq_menu_admin();
                 break;
             }
             case 5:
             {
-                system("clear");
+                system("cls");
                 ndyrsho_user();
                 shfaq_menu_admin();
                 break;
             }
             case 6:
             {
-                system("clear");
+                system("cls");
                 shfaq_users_full();
                 shfaq_menu_admin();
                 break;
             }
             case 7:
             {
-                system("clear");
+                system("cls");
                 kerko_user_sipas_username();
                 shfaq_menu_admin();
                 break;
             }
             case 8:
             {
-                system("clear");
+                system("cls");
                 rradhit_users_sipas_username();
                 shfaq_menu_admin();
                 break;
             }
             case 9:
             {
-                system("clear");
+                system("cls");
                 modifiko_kategorite();
                 shfaq_menu_admin();
                 break;
             }
             case 10:
             {
-                system("clear");
+                system("cls");
                 statistika_sistemi();
                 shfaq_menu_admin();
                 break;
             }
             case 11:
             {
-                system("clear");
+                system("cls");
                 rradhit_users_sipas_id();
                 shfaq_menu_admin();
                 break;  
             }
             case 12:
             {
-                system ("clear");
+                system ("cls");
                 printf("                               MENU\n");
                 printf("---------------------------------------------------------------------\n\n");
                 return ;
@@ -173,13 +173,13 @@ int shto_user(void)
     user_aktual++;
     if (ruaj_users() != -1)
     {
-        system("clear");
+        system("cls");
         printf("\nPERDORUESI U SHTUA ME SUKSES!\n");
         return (perdoruesit[user_aktual - 1].id_user);  //return id e user-it te shtuar
     }
     else //Deshtoi ruajtja
     {
-        system("clear");
+        system("cls");
         user_aktual--;
         printf("Perdoruesi nuk u shtua.\n");
         return -1;
@@ -228,7 +228,7 @@ int kerko_user_sipas_id(void)
         printf("Deshiron ta shtosh? (Po/Jo) ");
         char choice[4];
         scanf("%s", choice);
-        system("clear");
+        system("cls");
         if (strcmp(choice, "Po") == 0 || strcmp(choice, "po") == 0 || 
             strcmp(choice, "PO") == 0)
         {
@@ -302,12 +302,12 @@ void fshi_user(void)
 
     if (ruaj_te_dhenat() != -1)
     {
-        system("clear");
+        system("cls");
         printf("\nPERDORUESI \"%s\" ME GJITHE TE DHENAT E TIJ U FSHI ME SUKSES!\n", emri_temp);
     }
     else
     {
-        system("clear");
+        system("cls");
         user_aktual++;
         printf("Perdoruesi nuk u fshi dot.\n");
     }
@@ -381,7 +381,7 @@ void ndyrsho_user(void)
         }
         case 7:
         {
-            system("clear");
+            system("cls");
             break;
         }
         default:
@@ -430,7 +430,7 @@ void kerko_user_sipas_username(void)
         printf("Deshiron ta shtosh? (Po/Jo) ");
         char choice[4];
         scanf("%s", choice);
-        system("clear");
+        system("cls");
         if (strcmp(choice, "Po") == 0 || strcmp(choice, "po") == 0 || 
             strcmp(choice, "PO") == 0)
         {
@@ -546,7 +546,7 @@ void modifiko_kategorite(void)
         }
         case 5:
         {
-            system("clear");
+            system("cls");
             return ;
         }
         default:
@@ -833,7 +833,7 @@ int ndrysho_kategori(void)
         }
         case 5:
         {
-            system("clear");
+            system("cls");
             return -1;
         }
         default:

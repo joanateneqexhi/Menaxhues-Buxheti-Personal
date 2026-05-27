@@ -18,7 +18,7 @@ FILE *fp;
 
 int main()
 {
-    system("clear");
+    system("cls");
 
     // Per heren e pare te ekzekutimit, krijimi i file-ve
     if (inicializo_file("user.txt") == -1 || inicializo_file("shpenzime.txt") == -1 ||
@@ -47,7 +47,7 @@ int main()
         {
             case 1:
             {
-                system("clear");  //system ("cls")  - per Windows
+                system("cls");  //system ("cls")  - per Windows
                 char admin_pass[20];
                 for(int i = 3; i > 0; i--)
                 {
@@ -62,7 +62,7 @@ int main()
                 }
                 if (strcmp(admin_pass, ADMIN_PASS) == 0)
                 {
-                    system("clear");
+                    system("cls");
                     menu_admin();
                 }
                 else
@@ -73,7 +73,7 @@ int main()
             }
             case 2:
             {
-                system("clear");
+                system("cls");
                 char user_username[15];
                 char user_pass[20];
                 int user_index;
@@ -96,7 +96,7 @@ int main()
                     scanf("%s", user_pass);
                     if (strcmp(user_pass, perdoruesit[user_index].password) == 0)
                     {
-                        system("clear");
+                        system("cls");
                         printf(":)  Mireseerdhe %s!\n\n\n", perdoruesit[user_index].emri);
                         menu_user(user_index);
                         break;
@@ -110,7 +110,7 @@ int main()
             }
             case 3:
             {
-                system("clear");
+                system("cls");
                 printf("Po mbyllet programi...\n");
                 return 0;
             }
