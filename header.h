@@ -65,6 +65,7 @@ extern struct shpenzim shpenzimet[MAX_SHPENZIME];
 extern struct te_ardhura te_ardhurat[MAX_ARDHURA];
 
 //                                           Funksionet
+void rradhit_users_username(void);
 
 //                                            - Menu
 int menu_1(void);
@@ -105,7 +106,7 @@ void fshi_user(void);
 void ndyrsho_user(void);
 void shfaq_users_full(void);
 void kerko_user_sipas_username(void);
-
+void rradhit_users_username(void);
 
 //                                            - menu_user
 
