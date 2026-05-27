@@ -501,13 +501,13 @@ void modifiko_kategorite(void)
     printf("Ju mund te:\n");
     printf("1. Shtoni nje kategori\n2. Ndryshoni nje kategori\n3. Fshini nje kategori\n");
     printf("4. Shfaqni kategorite\n5. Kthehu mbrapsht\n\n");
-    printf("Zgjidhni opsionin (1-4): ");
+    printf("Zgjidhni opsionin (1-5): ");
     while (1)
     {
         scanf("%d", &opsioni);
-        if (opsioni < 1 || opsioni > 4)
+        if (opsioni < 1 || opsioni > 5)
         {
-            printf("Zgjidhni opsion te duhur (1-4): ");
+            printf("Zgjidhni opsion te duhur (1-5): ");
             continue;
         }
         break;

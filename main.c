@@ -1,7 +1,5 @@
 #include "header.h"
 
-//Kompilimi: cc menu_admin.c menu_user.c main.c header.h
-
 //Variabla globale per indexet aktuale te seciles strukture
 int user_aktual = 0;
 int shpenzim_aktual = 0;
