@@ -11,4 +11,4 @@
 9 Restorante | Shpenzime per ushqime dhe pije jashte shtepise
 10 Elektronike | Shpenzime per pajisje elektronike
 11 Shtepia | Shpenzime per mobilje, pajisje elektroshtepiake dhe riparime shtepie
-13 Tjeter | Shpenzime te ndryshme qe nuk perfshihen ne kategoritë e tjera
+13 Tjeter | Shpenzime te ndryshme qe nuk perfshihen ne kategorite e tjera

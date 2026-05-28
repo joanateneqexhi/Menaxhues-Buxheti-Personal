@@ -2,7 +2,7 @@
 # define HEADER_H
 
 # include <stdio.h>
-# include <string.h> // per strcmp
+# include <string.h> // per strcmp strlen
 # include <stdlib.h> //per funksionin: int system(const char *command) / system("cls")
 # include <ctype.h> // per funksionin: ispunct (pass validation)
 
@@ -135,8 +135,8 @@ void raport_vjetor(int user_index);
 void kontrollo_buxhetin(int user_index);
 void kerko_shpenzim_sipas_kategorise(int user_index);
 void fshi_shpenzim(int user_index);
-void rendit_shpnezimet_sipas_shumes(int user_index);
-void rendit_shpnezimet_sipas_dates(int user_index);
+void rendit_shpenzimet_sipas_shumes(int user_index);
+void rendit_shpenzimet_sipas_dates(int user_index);
 void kerko_shpenzim(int user_index);
 void fshi_te_ardhura(int user_index);
 

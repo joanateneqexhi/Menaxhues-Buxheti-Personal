@@ -4,27 +4,26 @@ void menu_admin(void)
 {
     printf("                         MENU ADMINISTRATOR\n");
     printf("---------------------------------------------------------------------\n\n");
-    printf("1. Shtoni një përdorues të ri\n");
-    printf("2. Shfaq përdoruesit\n");
-    printf("3. Kërko përdorues sipas ID\n");
-    printf("4. Fshini kredencialet e një përdoruesi\n");
-    printf("5. Ndryshoni të dhënat e një përdoruesi ekzistues\n");
-    printf("6. Printoni të gjithë të dhënat e përdoruesve\n");
-    printf("7. Kërkoni një përdorues sipas username\n");
-    printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
+    printf("1. Shtoni nje perdorues te ri\n");
+    printf("2. Shfaq perdoruesit\n");
+    printf("3. Kerko perdorues sipas ID\n");
+    printf("4. Fshini kredencialet e nje perdoruesi\n");
+    printf("5. Ndryshoni te dhenat e nje perdoruesi ekzistues\n");
+    printf("6. Printoni te gjithe te dhenat e perdoruesve\n");
+    printf("7. Kerkoni nje perdorues sipas username\n");
+    printf("8. Rradhisni te gjithe perdoruesit sipas username\n");
     printf("9. Modifiko kategori\n");
-    printf("10. Statistika të sistemit\n");
-    printf("11. Rradhisni të gjithë përdoruesit sipas ID\n");
-    //(numri total i përdoruesve, numri total i shpenzimeve, 
-    //përdoruesi me më shumë / më pak shpenzime, etj.)
+    printf("10. Statistika te sistemit\n");
+    printf("11. Rradhisni te gjithe perdoruesit sipas ID\n");
+    //(numri total i perdoruesve, numri total i shpenzimeve, 
+    //perdoruesi me me shume / me pak shpenzime, etj.)
     printf("12. Dilni nga menuja e administratorit\n");
-    //(rikthehet në Menu 1)
+    //(rikthehet ne Menu 1)
 
     int n;
     while(1)
     {
         printf("\nZgjidhni (1-12):   ");
-        // while (getchar() != '\n'); GABIM
         scanf("%d", &n);
         switch(n)
         {
@@ -115,6 +114,7 @@ void menu_admin(void)
             default:
             {
                 printf("Zgjidhni nje opsion te sakte (1-12)!    ");
+                while(getchar() != '\n');
                 break;
             }
         }
@@ -127,17 +127,17 @@ void shfaq_menu_admin(void)
 {
     printf("\n\n                        MENU ADMINISTRATOR\n");
     printf("---------------------------------------------------------------------\n\n");
-    printf("1. Shtoni një përdorues të ri\n");
-    printf("2. Shfaq përdoruesit\n");
-    printf("3. Kërko përdorues sipas ID\n");
-    printf("4. Fshini kredencialet e një përdoruesi\n");
-    printf("5. Ndryshoni të dhënat e një përdoruesi ekzistues\n");
-    printf("6. Printoni të gjithë të dhënat e përdoruesve\n");
-    printf("7. Kërkoni një përdorues sipas username\n");
-    printf("8. Rradhisni të gjithë përdoruesit sipas username\n");
+    printf("1. Shtoni nje perdorues te ri\n");
+    printf("2. Shfaq perdoruesit\n");
+    printf("3. Kerko perdorues sipas ID\n");
+    printf("4. Fshini kredencialet e nje perdoruesi\n");
+    printf("5. Ndryshoni te dhenat e nje perdoruesi ekzistues\n");
+    printf("6. Printoni te gjithe te dhenat e perdoruesve\n");
+    printf("7. Kerkoni nje perdorues sipas username\n");
+    printf("8. Rradhisni te gjithe perdoruesit sipas username\n");
     printf("9. Modifiko kategori\n");
-    printf("10. Statistika të sistemit\n");
-    printf("11. Rradhisni të gjithë përdoruesit sipas ID\n");
+    printf("10. Statistika te sistemit\n");
+    printf("11. Rradhisni te gjithe perdoruesit sipas ID\n");
     printf("12. Dilni nga menuja e administratorit\n");
 }
 
@@ -203,13 +203,18 @@ int kerko_user_sipas_id(void)
     printf("Vendosni ID e perdoruesit qe po kerkoni: ");
     while (1)
     {
-        scanf("%d", &id);
+        if (scanf("%d", &id) != 1)
+        {
+            printf("Vendosni nje vlere numerike: ");
+            while(getchar() != '\n');
+            continue;
+        }
         if (id <= 0)
-            {
-                printf("ID ne sistem jane numra pozitive!\n");
-                printf("Vendosni ID e perdoruesit qe po kerkoni: ");
-                continue;
-            }
+        {
+            printf("ID ne sistem jane numra pozitive!\n");
+            printf("Vendosni ID e perdoruesit qe po kerkoni: ");
+            continue;
+        }
         else
             break;
     }    
@@ -252,7 +257,7 @@ void fshi_user(void)
     {
         if (scanf("%d", &id) != 1)
         {
-            printf("Vendosni nje vlere numerike!");
+            printf("Vendosni nje vlere numerike: ");
             while (getchar() != '\n');
             continue;
         }
@@ -580,6 +585,7 @@ void statistika_sistemi(void)
         if (opsioni < 1 || opsioni > 8)
         {
             printf("Vendosni opsion te sakte! (1-8): ");
+            while(getchar() != '\n');
             continue;
         }
         break;
@@ -589,26 +595,31 @@ void statistika_sistemi(void)
     {
         case 1:
         {
+            system("cls");
             printf("\nNumri total i perdoruesve eshte %d.\n", user_aktual);
             break;
         }
         case 2:
         {
+            system("cls");
             printf("\nNumri total i shpenzimeve eshte %d.\n", shpenzim_aktual);
             break;
         }
         case 3:
         {
+            system("cls");
             printf("\nNumri total i kategorive eshte %d.\n", kategoria_aktuale);
             break;
         }
         case 4:
         {
+            system("cls");
             printf("\nNumri total i te ardhurave eshte %d.\n", e_ardhura_aktuale);
             break;
         }
         case 5:
         {
+            system("cls");
             int index_max = -1;
             float max_shpenzim = 0;
 
@@ -642,6 +653,7 @@ void statistika_sistemi(void)
         }
         case 6:
         {
+            system("cls");
             int index_min = -1;
             float min_shpenzim = -1;
 
@@ -675,6 +687,7 @@ void statistika_sistemi(void)
         }
         case 7:
         {
+            system("cls");
             int index_max = -1;
             float max_ardhura = 0;
 
@@ -708,6 +721,7 @@ void statistika_sistemi(void)
         }
         case 8:
         {
+            system("cls");
             int index_min = -1;
             float min_ardhura = -1;
 

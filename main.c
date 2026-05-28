@@ -1,5 +1,7 @@
 #include "header.h"
 
+//gcc main.c menu_admin.c menu_user.c id_utils.c -o program.exe
+
 //Variabla globale per indexet aktuale te seciles strukture
 int user_aktual = 0;
 int shpenzim_aktual = 0;
@@ -45,7 +47,7 @@ int main()
         {
             case 1:
             {
-                system("cls");  //system ("cls")  - per Windows
+                system("cls");
                 char admin_pass[20];
                 for(int i = 3; i > 0; i--)
                 {
@@ -138,7 +140,7 @@ int menu_1(void)
     while (n < 1 || n > 3)
     {
         printf("Zgjidhni nje opsion 1-3!  ");
-        while (getchar() != '\n');  //Bej skip gjithe inputin e gabuar (char)
+        while (getchar() != '\n');
         scanf("%d", &n);
     }
     return (n); 

@@ -1,6 +1,6 @@
 #include "header.h"
 
-// kontroll ID pozitive dhe NUK ekziston -> per tek shto + ndrysho user, kategori
+// kontroll ID pozitive dhe NUK ekziston -> per tek shto + ndrysho 
 int merr_id_input(char *struktura)
 {
     int u_gjet = -1;

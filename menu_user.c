@@ -4,21 +4,21 @@ void menu_user(int user_index)
 {
     printf("                           MENU PERDORUES\n");
     printf("---------------------------------------------------------------------\n\n");
-    printf("1. Shto një shpenzim të ri\n");
-    printf("2. Shto të ardhura\n");
+    printf("1. Shto nje shpenzim te ri\n");
+    printf("2. Shto te ardhura\n");
     printf("3. Shfaq shpenzimet e mia\n");
-    printf("4. Shfaq të ardhurat e mia\n");
+    printf("4. Shfaq te ardhurat e mia\n");
     printf("5. Raport mujor / vjetor \n");
-    //(totali i të ardhurave, shpenzimeve, kursimet, kategoria me më shumë shpenzime)
+    //(totali i te ardhurave, shpenzimeve, kursimet, kategoria me me shume shpenzime)
     printf("6. Kontrollo buxhetin\n");
-    printf("7. Kërko shpenzim sipas kategorisë\n");
-    printf("8. Fshini të dhënat e një shpenzimi\n");
-    printf("9. Rendit shpenzimet sipas shumës\n");
-    printf("10. Rendit shpenzimet sipas datës\n");
-    printf("11. Kërko shpenzim sipas ID, datës, kategorisë, interval të datave\n");
+    printf("7. Kerko shpenzim sipas kategorise\n");
+    printf("8. Fshini te dhenat e nje shpenzimi\n");
+    printf("9. Rendit shpenzimet sipas shumes\n");
+    printf("10. Rendit shpenzimet sipas dates\n");
+    printf("11. Kerko shpenzim sipas ID, dates, kategorise, interval te datave\n");
     printf("12. Fshini te dhenat e nje te ardhure\n");
-    printf("13. Dilni nga menuja e përdoruesit\n");
-    //(rikthehet në Menu 1)
+    printf("13. Dilni nga menuja e perdoruesit\n");
+    //(rikthehet ne Menu 1)
 
     int n;
 
@@ -88,14 +88,14 @@ void menu_user(int user_index)
             case 9:
             {
                 system("cls");
-                rendit_shpnezimet_sipas_shumes(user_index);
+                rendit_shpenzimet_sipas_shumes(user_index);
                 shfaq_menu_user();
                 break;
             }
             case 10:
             {
                 system("cls");
-                rendit_shpnezimet_sipas_dates(user_index);
+                rendit_shpenzimet_sipas_dates(user_index);
                 shfaq_menu_user();
                 break;
             }
@@ -135,19 +135,19 @@ void shfaq_menu_user(void)
 {
     printf("                           MENU PERDORUES\n");
     printf("---------------------------------------------------------------------\n\n");
-    printf("1. Shto një shpenzim të ri\n");
-    printf("2. Shto të ardhura\n");
+    printf("1. Shto nje shpenzim te ri\n");
+    printf("2. Shto te ardhura\n");
     printf("3. Shfaq shpenzimet e mia\n");
-    printf("4. Shfaq të ardhurat e mia\n");
+    printf("4. Shfaq te ardhurat e mia\n");
     printf("5. Raport mujor / vjetor \n");
     printf("6. Kontrollo buxhetin\n");
-    printf("7. Kërko shpenzim sipas kategorisë\n");
-    printf("8. Fshini të dhënat e një shpenzimi\n");
-    printf("9. Rendit shpenzimet sipas shumës\n");
-    printf("10. Rendit shpenzimet sipas datës\n");
-    printf("11. Kërko shpenzim sipas ID, datës, kategorisë, interval të datave\n");
+    printf("7. Kerko shpenzim sipas kategorise\n");
+    printf("8. Fshini te dhenat e nje shpenzimi\n");
+    printf("9. Rendit shpenzimet sipas shumes\n");
+    printf("10. Rendit shpenzimet sipas dates\n");
+    printf("11. Kerko shpenzim sipas ID, dates, kategorise, interval te datave\n");
     printf("12. Fshini te dhenat e nje te ardhure\n");
-    printf("13. Dilni nga menuja e përdoruesit\n");
+    printf("13. Dilni nga menuja e perdoruesit\n");
 }
 
 //                                         Funksionet
@@ -524,7 +524,7 @@ void fshi_shpenzim(int user_index)
     }
 }
 
-void rendit_shpnezimet_sipas_shumes(int user_index)
+void rendit_shpenzimet_sipas_shumes(int user_index)
 {
     int i, j;
     struct shpenzim temp_arr[MAX_SHPENZIME]; // vektor me gjithe shpenzimet e user
@@ -564,7 +564,7 @@ void rendit_shpnezimet_sipas_shumes(int user_index)
     }
 }
 
-void rendit_shpnezimet_sipas_dates(int user_index)
+void rendit_shpenzimet_sipas_dates(int user_index)
 {
     int i, j;
     struct shpenzim temp_arr[MAX_SHPENZIME]; // vektor me gjithe shpenzimet e user
@@ -1053,7 +1053,6 @@ int krahaso_datat(char *data1, char *data2)
     if (mm1 != mm2) 
         return mm1 - mm2;
 
-    //nuk ka problem qe kontrollon edhe pertej 2 shifrave te dates, ato jane kontrolluar tashme
     int dd1 = atoi(data1); 
     int dd2 = atoi(data2);
         return dd1 - dd2;
